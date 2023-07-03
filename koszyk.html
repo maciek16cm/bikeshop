@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koszyk - Rowerex.</title>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3a8649074f.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="logopng_orange_favicon.png">
+    <link rel="sitemap" type="application/xml" href="sitemap.xml">
+
+
+    <style>
+
+table {
+margin: 2rem auto;
+border-collapse: collapse;
+background-color: #c9d3d7;
+margin-bottom: 100px;
+table-layout: auto;
+width: 85%;
+}
+
+thead tr th {
+background-color: #16181b;
+color: #c9d3d7;
+font-weight: bold;
+text-align: left;
+padding: 1rem;
+text-transform: uppercase;
+}
+
+tbody tr td {
+border-bottom: 1px solid #16181b;
+padding: 1rem;
+min-width: 150px;
+}
+
+tfoot tr td {
+font-weight: bold;
+text-align: right;
+padding: 1rem;
+background-color: #191d1f;
+min-width: 150px;
+}
+
+/* Styl przycisku usuwania produktu */
+button.usun-produkt {
+background-color: transparent;
+border: none;
+color: #4b4b4b;
+cursor: pointer;
+font-size: 1.2rem;
+transition: color 0.3s ease;
+transition: scale 0.3s ease;
+}
+
+main button.usun-produkt:hover {
+color: #e39153;
+scale: 1.3;
+}
+
+/* Styl przycisku zamówienia */
+main a.przycisk-zamowienia {
+background-color: #e39153;
+color: #c9d3d7;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 1rem 2rem;
+text-transform: uppercase;
+text-decoration: none;
+font-size: 1.2rem;
+transition: background-color 0.3s ease;
+border-radius: 30px;
+border: 3px solid #e39153;
+}
+
+main a.przycisk-zamowienia:hover {
+background-color: transparent;
+color: #c9d3d7;
+}
+
+main a.przycisk-zamowienia i {
+margin-left: 0.8rem;
+}
+
+/* Ikony z Font Awesome */
+.fa-trash-alt {
+font-size: 1.2rem;
+}
+
+.fa-arrow-right {
+font-size: 1.2rem;
+margin-left: 0.5rem;
+}
+
+#koszyk-block {
+  height: 200px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+#koszyk-block h1{
+  color: #c9d3d7;
+  text-align: center;
+  font-size: 80px;
+  letter-spacing: 3px;
+}
+
+tbody tr td.color,
+tbody tr td.color2{
+  position: relative;
+}
+
+tbody tr td.color:before {
+  content: "";
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: blue;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 0.25rem;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+tbody tr td.color2:before {
+  content: "";
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 0.25rem;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+.przycisk-zamowienia {
+  width: 330px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.usuwany-wiersz {
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+
+    </style>  
+</head>
+<body>
+
+  <header class="header">
+    <a href="index.html"><img src="logoglowne.png" alt="Logo"></a>
+    <ul class="fajnyul">
+        <li class="fajnyli">
+            <a href="index.html"><i class="fa-solid fa-house"></i>&nbsp; Strona główna</a>
+        </li>
+        <li>
+            <a href="#rowery-block" onclick="location.href='index.html#rowery-block'"><i class="fa-solid fa-bicycle"></i>&nbsp; Rowery &nbsp;<i class="fa-solid fa-caret-down"></i></a>
+            <ul class="dropdown">
+                <li><a href="#szosowe" onclick="location.href='index.html#szosowe'"><i class="fa-solid fa-road"></i>&nbsp; Szosowe</a></li>
+                <li><a href="#gorskie" onclick="location.href='index.html#gorskie'"><i class="fa-solid fa-mountain"></i>&nbsp; Górskie</a></li>
+                <li><a href="#elektryczne" onclick="location.href='index.html#elektryczne'"><i class="fa-solid fa-bolt"></i>&nbsp; Elektryczne</a></li>
+                <li><a href="#sizes" onclick="location.href='index.html#sizes'"><i class="fa-solid fa-ruler"></i>&nbsp; Tabela rozmiarów</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#serwis-block" onclick="location.href='index.html#serwis-block'"><i class="fa-solid fa-screwdriver-wrench"></i>&nbsp; Serwis</a>
+        </li>
+        <li>
+            <a href="#kontakt-block" onclick="location.href='index.html#kontakt-block'"><i class="fa-solid fa-phone"></i>&nbsp; Kontakt</a>
+        </li>
+        <li class="koszyk">
+            <a href="#koszyk-block"><i class="fa-solid fa-cart-shopping"></i>&nbsp; Koszyk (<span id="liczba-produktow">0</span>)</a>
+        </li>
+        <li class="koszyk">
+          <a href="login.html" target="_blank"><i class="fa-solid fa-right-to-bracket"></i>&nbsp; Logowanie</a>
+      </li>
+    </ul>
+</header>
+
+    <div id="txt">
+        <h2>Twoje centrum rowerowe</h2>
+        <h3>ROWEREX</h3>
+    </div>
+    
+    <div id="bg"></div>
+
+    <div id="rower"></div>
+
+    <div id="koszyk-block">
+        <h1>KOSZYK</h1>
+      </div>
+
+      <main>
+        <table>
+          <thead>
+            <tr>
+              <th>Produkt</th>
+              <th>Rozmiar</th>
+              <th>Kolor</th>
+              <th>Ilość</th>
+              <th>Cena</th>
+              <th>Łącznie</th>
+              <th>Usuń produkt</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Rower szosowy "Race Pro"</td>
+              <td>M</td>
+              <td class="color"></td>
+              <td>1</td>
+              <td>7699 PLN</td>
+              <td></td>
+              <td>
+                <button class="usun-produkt">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>Rower elektryczny "CityCruiser"</td>
+              <td>L</td>
+              <td class="color2"></td>
+              <td>2</td>
+              <td>5899 PLN</td>
+              <td></td>
+              <td>
+                <button class="usun-produkt">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="5" style="color: #c9d3d7; font-size: 20px; text-align: left;">RAZEM</td>
+              <td style="color: #c9d3d7; font-size: 25px; text-align: left;"></td>
+              <td>
+                <a href="#" class="przycisk-zamowienia">
+                  Złóż zamówienie
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </main>
+      
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4">
+              <h3>O nas</h3>
+              <p>Jesteśmy sklepem internetowym zajmującym się sprzedażą rowerów oraz akcesoriów rowerowych. Nasza oferta obejmuje szeroki wybór modeli różnych marek w atrakcyjnych cenach.</p>
+            </div>
+            <div class="col-lg-4">
+              <h3>Kontakt</h3>
+              <p><i class="fas fa-envelope"></i> <a href="mailto:maciej.szruba@zstmikolow.pl">maciej.szruba@zstmikolow.pl</a></p>
+              <p><i class="fas fa-phone"></i> <a href="tel:+48123456789">+48 123 456 789</a></p>
+              <p><i class="fas fa-map-marker-alt"></i> ul. Rybnicka 44, 43-190 Mikołów</p>
+            </div>
+            <div class="col-lg-4">
+              <h3>Newsletter</h3>
+              <p>Zapisz się do newslettera i otrzymuj informacje o nowościach i promocjach.</p>
+              <form>
+                <input type="email" placeholder="Twój adres e-mail">
+                <button type="submit">Zapisz się</button>
+              </form>
+            </div>
+          </div>
+          <hr class="hr1">
+          <div class="row">
+            <div class="col-lg-6">
+              <p>&copy; 2023 Rowerex. Wszelkie prawa zastrzeżone.</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    <script>
+        const headerEl = document.querySelector('.header');
+
+        window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            headerEl.classList.add('header-scrolled');
+        } else if (window.scrollY <= 50) {
+            headerEl.classList.remove('header-scrolled');
+        }
+    });
+    </script>
+
+    <script>
+      const cenaRazemElement = document.querySelector('td[colspan="5"] + td');
+
+let cenaRazem = 0;
+
+const produkty = document.querySelectorAll('tbody tr');
+
+produkty.forEach((produkt) => {
+  const iloscElement = produkt.querySelector('td:nth-child(4)');
+  const ilosc = parseInt(iloscElement.innerText);
+  const cenaElement = produkt.querySelector('td:nth-child(5)');
+  const cena = parseFloat(cenaElement.innerText);
+  const iloczyn = ilosc * cena;
+  cenaRazem += iloczyn;
+
+  const usunButton = produkt.querySelector('.usun-produkt');
+  usunButton.addEventListener('click', () => {
+    cenaRazem -= iloczyn;
+    if (cenaRazem < 0) {
+      cenaRazem = 0;
+    }
+    cenaRazemElement.innerText = cenaRazem.toLocaleString('pl-PL', {style: 'currency', currency: 'PLN'}).replace('zł', 'PLN').replace(',00', '');
+    produkt.remove();
+    const przyciskZamowienia = document.querySelector('.przycisk-zamowienia');
+    if (cenaRazem === 0) {
+      przyciskZamowienia.style.display = 'none';
+    } else {
+      przyciskZamowienia.style.display = 'flex';
+    }
+  });
+});
+
+cenaRazemElement.innerText = cenaRazem.toLocaleString('pl-PL', {style: 'currency', currency: 'PLN'}).replace('zł', 'PLN').replace(',00', '');
+
+
+    </script>
+
+    <script>
+      // Pobierz wszystkie wiersze z tabeli
+const rows = document.querySelectorAll('table tbody tr');
+
+// Przejdź przez każdy wiersz i oblicz wartość w kolumnie "Łącznie"
+rows.forEach((row) => {
+  const quantity = parseInt(row.querySelector('td:nth-of-type(4)').textContent);
+  const price = parseInt(row.querySelector('td:nth-of-type(5)').textContent.replace(' PLN', '').replace(' ', ''));
+  const total = quantity * price;
+  row.querySelector('td:nth-of-type(6)').textContent = total + ' PLN';
+});
+</script>
+
+<script>
+// znajdź element koszyka
+const koszykElement = document.querySelector('.koszyk');
+// znajdź element z liczbą produktów
+const liczbaProduktowElement = document.querySelector('#liczba-produktow');
+
+// ustaw początkową wartość licznika na 0 lub odczytaj z localStorage
+let liczbaProduktow = parseInt(localStorage.getItem('liczbaProduktow')) || 0;
+
+// funkcja do aktualizacji liczby produktów w koszyku
+const aktualizujLiczbeProduktow = () => {
+  // znajdź wszystkie wiersze z produktami w tabeli
+  const produkty = document.querySelectorAll('tbody tr');
+  // zsumuj ilości wszystkich produktów w koszyku
+  let sumaIlosci = 0;
+  produkty.forEach((produkt) => {
+    const iloscElement = produkt.querySelector('td:nth-child(4)');
+    const ilosc = parseInt(iloscElement.innerText);
+    sumaIlosci += ilosc;
+  });
+  // uaktualnij wartość licznika i tekst na stronie
+  liczbaProduktow = sumaIlosci;
+  localStorage.setItem('liczbaProduktow', liczbaProduktow);
+  liczbaProduktowElement.innerText = liczbaProduktow;
+};
+
+// wywołaj funkcję aktualizującą liczbę produktów przy każdej zmianie w koszyku
+const tabelaKoszyka = document.querySelector('table');
+const observer = new MutationObserver(aktualizujLiczbeProduktow);
+observer.observe(tabelaKoszyka, { childList: true, subtree: true });
+
+// ustaw początkową wartość licznika na podstawie aktualnego stanu koszyka
+aktualizujLiczbeProduktow();
+
+
+</script>
+
+<script>
+  localStorage.setItem("cartItemCount", rows.length);
+</script>
+
+
+
+</script>
+
+</body>
+</html>

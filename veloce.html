@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rower Veloce - Rowerex.</title>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3a8649074f.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="logopng_orange_favicon.png">
+    <link rel="sitemap" type="application/xml" href="sitemap.xml">
+
+    <style>
+        #veloce-block {
+        height: 200px;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+        }
+
+        #veloce-block h1{
+        color: #c9d3d7;
+        text-align: center;
+        font-size: 80px;
+        letter-spacing: 3px;
+        }
+
+        .veloce {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            margin: 0 auto;
+            background: #2b5d5b;
+            padding: 20px;
+            margin-bottom: 50px;
+            border-radius: 30px;
+        }
+
+        .info {
+            width: 60%;
+            margin-left: 100px;
+        }
+
+        .info h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: #e39153;
+        }
+
+        .veloce .price {
+            font-size: 38px;
+            margin-bottom: 10px;
+            color: #c9d3d7;
+            font-weight: 700;
+        }
+
+        .veloce .description {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #c9d3d7;
+        }
+
+        .veloce .sizes {
+            margin-bottom: 20px;
+        }
+
+        .sizes label {
+            font-size: 18px;
+        }
+
+        .veloce .sizes select {
+            font-size: 18px;
+            margin-left: 10px;
+        }
+
+        .veloce .add-to-cart {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .veloce .add-to-cart:hover {
+            background-color: transparent;
+        }
+
+        .veloce .add-to-cart {
+    background-color: #e39153;
+    color: #c9d3d7;
+    border: 3px solid #e39153;
+    padding: 8px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+    border-radius: 30px;
+    font-weight: 700;
+    position: relative;
+    font-size: 18px;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .veloce .product-size,
+  .veloce .product-color,
+  .veloce .custom-input-number {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  color: #c9d3d7;
+  margin-left: 70px;
+  }
+  
+  .veloce .product-size label,
+  .veloce .product-color label{
+  font-size: 1.2rem;
+  margin-right: 10px;
+  width: 170px;
+  }
+  
+  .veloce .product-size select,
+  .veloce .product-color select {
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  margin-right: 10px;
+  margin-left: -60px;
+  padding: 5px;
+  width: 150px;
+  font-size: 16px;
+  color: #16181b;
+  resize: none;
+  margin-top: 10px;
+  background: #c9d3d7;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("caret-down-solid\ \(1\).svg");
+  background-repeat: no-repeat;
+  background-position-x: 97%;
+  background-position-y: 4px;
+  background-size: 20px 20px;
+  font-family: 'Alexandria', sans-serif;
+  padding-left: 10px;
+  }
+
+  .veloce .add-to-cart i{
+    margin-right: 10px;
+  }
+
+.veloce select:focus,
+.veloce input:focus {
+  outline: 3px solid #e39153;
+  transition: .1s;
+  }
+  
+  .veloce .image img {
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out;
+    width: 900px;
+    margin-left: -120px;
+  }
+  
+  .veloce:hover .image img {
+    transform: translateX(120px);
+  }
+
+  .veloce .custom-input-number input[type="number"] {
+    border: none;
+    border-radius: 30px;
+    -moz-appearance: textfield;
+    font-size: 1.2rem;
+    margin-right: 10px;
+    margin-left: -60px;
+    padding: 5px;
+    width: 135px;
+    font-size: 16px;
+    color: #16181b;
+    resize: none;
+    margin-top: 10px;
+    background: #c9d3d7;
+    font-family: 'Alexandria', sans-serif;
+    padding-left: 10px;
+  }
+  
+  .custom-input-number input[type="number"]::-webkit-outer-spin-button,
+  .custom-input-number input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  .custom-input-number .btn-up,
+  .custom-input-number .btn-down {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: transparent;
+    font-size: 12px;
+    cursor: pointer;
+    position: absolute;
+  }
+  
+  .custom-input-number .btn-up:hover,
+  .custom-input-number .btn-down:hover {
+    color: #e39153;
+  }
+  
+  .btn-up{
+    margin-left: 240px;
+    margin-top: 11px;
+  }
+  
+  .btn-down{
+    margin-left: 220px;
+    margin-top: 7px;
+  }
+
+  .btn-down i{
+    font-size: 20px;
+  }
+
+  .btn-up i{
+    font-size: 20px;
+  }
+
+  .custom-input-number label {
+    font-size: 1.2rem;
+    margin-right: 10px;
+    width: 170px;
+  }
+  
+  .custom-input-number {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    color: #c9d3d7;
+  }
+
+  .specyfikacja {
+margin: 0 auto;
+max-width: 1300px;
+padding: 20px;
+background: #2b5d5b;
+border-radius: 30px;
+margin-bottom: 100px;
+}
+
+.specyfikacja .row {
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+justify-content: center;
+margin: 0 -15px;
+}
+
+.specyfikacja .col {
+flex-basis: 0;
+flex-grow: 1;
+max-width: 100%;
+padding: 0 15px;
+}
+
+.specyfikacja h1 {
+font-size: 48px;
+margin-bottom: 20px;
+text-align: center;
+text-transform: uppercase;
+color: #e39153;
+}
+
+.specyfikacja h2 {
+font-size: 24px;
+margin-bottom: 10px;
+color: #c9d3d7;
+text-transform: uppercase;
+}
+
+.specyfikacja ul {
+list-style: none;
+margin: 10px;
+color: #c9d3d7;
+}
+
+.specyfikacja li {
+margin-bottom: 5px;
+font-size: 18px;
+}
+
+.specyfikacja i {
+margin-right: 7px;
+}
+
+.specyfikacja ul li::before {
+  content: "\2022";
+  color: #e39153;
+  display: inline-block; 
+  width: 1em;
+  margin-left: -1em;
+  font-weight: bold;
+}
+
+.specyfikacja svg{
+  margin-right: 7px;
+  transform: translate(0px,6px);
+  -ms-transform: translate(0px,6px);
+  -webkit-transform: translate(0px,6px);
+  -o-transform: translate(0px,6px);
+  -moz-transform: translate(0px,6px);
+}
+    </style>
+
+</head>
+<body>
+
+  <header class="header">
+    <a href="index.html"><img src="logoglowne.png" alt="Logo"></a>
+    <ul class="fajnyul">
+        <li class="fajnyli">
+            <a href="index.html"><i class="fa-solid fa-house"></i>&nbsp; Strona główna</a>
+        </li>
+        <li>
+            <a href="#rowery-block" onclick="location.href='index.html#rowery-block'"><i class="fa-solid fa-bicycle"></i>&nbsp; Rowery &nbsp;<i class="fa-solid fa-caret-down"></i></a>
+            <ul class="dropdown">
+                <li><a href="#szosowe" onclick="location.href='index.html#szosowe'"><i class="fa-solid fa-road"></i>&nbsp; Szosowe</a></li>
+                <li><a href="#gorskie" onclick="location.href='index.html#gorskie'"><i class="fa-solid fa-mountain"></i>&nbsp; Górskie</a></li>
+                <li><a href="#elektryczne" onclick="location.href='index.html#elektryczne'"><i class="fa-solid fa-bolt"></i>&nbsp; Elektryczne</a></li>
+                <li><a href="#sizes" onclick="location.href='index.html#sizes'"><i class="fa-solid fa-ruler"></i>&nbsp; Tabela rozmiarów</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#serwis-block" onclick="location.href='index.html#serwis-block'"><i class="fa-solid fa-screwdriver-wrench"></i>&nbsp; Serwis</a>
+        </li>
+        <li>
+            <a href="#kontakt-block" onclick="location.href='index.html#kontakt-block'"><i class="fa-solid fa-phone"></i>&nbsp; Kontakt</a>
+        </li>
+        <li class="koszyk">
+            <a href="koszyk.html" target="_blank"><i class="fa-solid fa-cart-shopping"></i>&nbsp; Koszyk (<span id="liczba-produktow">0</span>)</a>
+        </li>
+        <li class="koszyk">
+          <a href="login.html" target="_blank"><i class="fa-solid fa-right-to-bracket"></i>&nbsp; Logowanie</a>
+      </li>
+    </ul>
+</header>
+
+    <div id="txt">
+        <h2>Twoje centrum rowerowe</h2>
+        <h3>ROWEREX</h3>
+    </div>
+
+    <div id="bg"></div>
+
+    <div id="rower"></div>
+
+    <div id="veloce-block">
+        <h1>ROWERY</h1>
+      </div>
+
+      <div class="veloce">
+        <div class="image">
+            <img src="sz2.png" alt="Rower">
+        </div>
+        <div class="info">
+            <h1>ROWER VELOCE</h1>
+            <p class="price">3999 PLN</p>
+            <p class="description">Rower szosowy "Veloce" to wspaniałe urządzenie dla osób szukających roweru o dobrej jakości w przystępnej cenie. Za jedyne 3999 PLN otrzymujesz lekką aluminiową ramę, która zapewni Ci nie tylko wytrzymałość, ale także komfort podczas jazdy.
+                                   <br/><br/>
+                                   Jego 8-stopniowa skrzynia biegów sprawi, że dostosowanie prędkości do terenu będzie proste i intuicyjne. To idealny rower dla początkujących kolarzy, którzy szukają sprzętu, który pozwoli im rozwijać swoje umiejętności i cieszyć się jazdą na szosie.
+                                   <br/><br/>
+                                   Jeśli szukasz niezawodnego roweru szosowego w przystępnej cenie, "Veloce" z pewnością Cię zadowoli. Jego wytrzymała rama, łatwe w użyciu biegi oraz uniwersalne kolory to tylko niektóre z zalet, które sprawiają, że warto zainwestować w ten rower.
+            </p>                
+            <form>
+                <div class="product-size">
+                  <label>Rozmiar</label>
+                  <select name="size" class="size-select">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                  </select>
+                </div>
+                <div class="product-color">
+                  <label>Kolor</label>
+                  <select name="color" class="color-select">
+                    <option value="black" style="color: white;">Biały</option>
+                    <option value="black" style="color: black;">Czarny</option>
+                  </select>
+                </div>
+                <div class="custom-input-number">
+                  <label>Ilość</label>
+                  <input class="custom-number-input" type="number" min="1" max="100" value="1" tabindex="0" onKeyPress="if(this.value.length==3) return false;">
+                  <button class="btn-up"><i class="fa-solid fa-caret-up"></i></button>
+                  <button class="btn-down"><i class="fa-solid fa-caret-down"></i></button>
+                </div> 
+                <button type="submit" class="add-to-cart"><i class="fa-solid fa-cart-shopping"></i>Dodaj do koszyka</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="specyfikacja">
+      <h1>Specyfikacja techniczna</h1>
+      <div class="row">
+        <div class="col">
+          <h2><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="m18.18 10l-1.7-4.68A2.008 2.008 0 0 0 14.6 4H13c-.55 0-1 .45-1 1s.45 1 1 1h1.6l1.46 4h-4.81l-.36-1h.09c.55 0 1-.45 1-1s-.45-1-1-1H8c-.55 0-1 .45-1 1s.45 1 1 1h.75l1.82 5H9.9c-.44-2.23-2.31-3.88-4.65-3.99C2.45 9.87 0 12.2 0 15c0 2.8 2.2 5 5 5c2.46 0 4.45-1.69 4.9-4h4.2c.44 2.23 2.31 3.88 4.65 3.99c2.8.13 5.25-2.19 5.25-5c0-2.8-2.2-5-5-5h-.82zM7.82 16c-.42 1.23-1.6 2.08-3.02 1.99c-1.49-.09-2.73-1.35-2.8-2.85C1.93 13.39 3.27 12 5 12c1.33 0 2.42.83 2.82 2H6c-.55 0-1 .45-1 1s.45 1 1 1h1.82zm6.28-2h-1.4l-.73-2H15c-.44.58-.76 1.25-.9 2zm4.78 4c-1.54-.06-2.84-1.37-2.88-2.92c-.02-.96.39-1.8 1.05-2.36l.62 1.7c.19.52.76.79 1.28.6c.52-.19.79-.76.6-1.28l-.63-1.73l.01-.01c1.72-.04 3.08 1.29 3.08 3a2.99 2.99 0 0 1-3.13 3z"/></svg>Rama</h2>
+          <ul>
+            <li>Materiał: Aluminium</li>
+            <li>Kolor: biały, czarny</li>
+            <li>Dostępne rozmiary: S, M, L, XL</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h2><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 640 512"><path fill="currentColor" d="M308.5 135.3c7.1-6.3 9.9-16.2 6.2-25c-2.3-5.3-4.8-10.5-7.6-15.5l-3.1-5.4c-3-5-6.3-9.9-9.8-14.6c-5.7-7.6-15.7-10.1-24.7-7.1L241.3 77c-10.7-8.8-23-16-36.2-20.9l-6.1-29c-1.9-9.3-9.1-16.7-18.5-17.8c-6.6-.9-13.3-1.3-20.1-1.3h-.7c-6.8 0-13.5.4-20.1 1.2c-9.4 1.1-16.6 8.6-18.5 17.8L115 56.1c-13.3 5-25.5 12.1-36.2 20.9l-28.3-9.2c-9-3-19-.5-24.7 7.1c-3.5 4.7-6.8 9.6-9.9 14.6l-3 5.3c-2.8 5-5.3 10.2-7.6 15.6c-3.7 8.7-.9 18.6 6.2 25l22.2 19.8c-1.1 6.7-1.7 13.7-1.7 20.8s.6 14.1 1.7 20.9l-22.2 19.8c-7.1 6.3-9.9 16.2-6.2 25c2.3 5.3 4.8 10.5 7.6 15.6l3 5.2c3 5.1 6.3 9.9 9.9 14.6c5.7 7.6 15.7 10.1 24.7 7.1l28.2-9.3c10.7 8.8 23 16 36.2 20.9l6.1 29.1c1.9 9.3 9.1 16.7 18.5 17.8c6.7.8 13.5 1.2 20.4 1.2s13.7-.4 20.4-1.2c9.4-1.1 16.6-8.6 18.5-17.8l6.1-29.1c13.3-5 25.5-12.1 36.2-20.9l28.2 9.3c9 3 19 .5 24.7-7.1c3.5-4.7 6.8-9.5 9.8-14.6l3.1-5.4c2.8-5 5.3-10.2 7.6-15.5c3.7-8.7.9-18.6-6.2-25l-22.2-19.8c1.1-6.8 1.7-13.8 1.7-20.9s-.6-14.1-1.7-20.9l22.2-19.8zM112 176a48 48 0 1 1 96 0a48 48 0 1 1-96 0zm392.7 324.5c6.3 7.1 16.2 9.9 25 6.2c5.3-2.3 10.5-4.8 15.5-7.6l5.4-3.1c5-3 9.9-6.3 14.6-9.8c7.6-5.7 10.1-15.7 7.1-24.7l-9.3-28.2c8.8-10.7 16-23 20.9-36.2L613 391c9.3-1.9 16.7-9.1 17.8-18.5c.8-6.7 1.2-13.5 1.2-20.4s-.4-13.7-1.2-20.4c-1.1-9.4-8.6-16.6-17.8-18.5l-29.1-6.2c-5-13.3-12.1-25.5-20.9-36.2l9.3-28.2c3-9 .5-19-7.1-24.7c-4.7-3.5-9.6-6.8-14.6-9.9l-5.3-3c-5-2.8-10.2-5.3-15.6-7.6c-8.7-3.7-18.6-.9-25 6.2l-19.8 22.2c-6.8-1.1-13.8-1.7-20.9-1.7s-14.1.6-20.9 1.7l-19.8-22.2c-6.3-7.1-16.2-9.9-25-6.2c-5.3 2.3-10.5 4.8-15.6 7.6l-5.2 3c-5.1 3-9.9 6.3-14.6 9.9c-7.6 5.7-10.1 15.7-7.1 24.7l9.3 28.2c-8.8 10.7-16 23-20.9 36.2l-29.1 6c-9.3 1.9-16.7 9.1-17.8 18.5c-.8 6.7-1.2 13.5-1.2 20.4s.4 13.7 1.2 20.4c1.1 9.4 8.6 16.6 17.8 18.5l29.1 6.1c5 13.3 12.1 25.5 20.9 36.2l-9.3 28.2c-3 9-.5 19 7.1 24.7c4.7 3.5 9.5 6.8 14.6 9.8l5.4 3.1c5 2.8 10.2 5.3 15.5 7.6c8.7 3.7 18.6.9 25-6.2l19.8-22.2c6.8 1.1 13.8 1.7 20.9 1.7s14.1-.6 20.9-1.7l19.8 22.2zM464 304a48 48 0 1 1 0 96a48 48 0 1 1 0-96z"/></svg>Układ napędowy</h2>
+          <ul>
+            <li>Skrzynia biegów: 8-stopniowa</li>
+            <li>Przerzutka tylna: Shimano Claris RD-R2000</li>
+            <li>Przerzutka przednia: Shimano Claris FD-R2000</li>
+            <li>Manetki: Shimano Claris ST-R2000</li>
+            <li>Kaseta: Shimano CS-HG50-8, 11-28T0</li>
+            <li>Łańcuch: KMC Z8.3</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h2><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 48 48"><mask id="ipSBrakePads0"><g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"><path d="M24 40c8.837 0 16-7.163 16-16S32.837 8 24 8S8 15.163 8 24s7.163 16 16 16Z"/><path fill="#fff" d="M24 28a4 4 0 1 0 0-8a4 4 0 0 0 0 8Zm0-24a20 20 0 0 1 20 20h-7.994A12.006 12.006 0 0 0 24 11.994V4Z"/></g></mask><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipSBrakePads0)"/></svg>Hamulce</h2>
+          <ul>
+            <li>Typ: Hamulce szczękowe Promax RC-462</li>
+            <li>Długość ramion hamulcowych: 47-57mm</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h2><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><g transform="rotate(180 16 16)"><path fill="currentColor" d="M2 16.002c0 7.731 6.27 14.001 14.002 14.001c7.731 0 13.998-6.27 13.998-14.001C30 8.27 23.733 2 16.002 2C8.27 2 2 8.27 2 16.002Zm13.425 11.25a11.21 11.21 0 0 1-6.173-2.231l5.1-6.074c.327.184.689.315 1.073.38v7.924Zm1.211-.004v-7.93a3.35 3.35 0 0 0 .797-.259l4.545 6.493a11.2 11.2 0 0 1-5.342 1.696Zm6.332-2.394l-4.55-6.497a3.29 3.29 0 0 0 .502-.659l7.45 2.713a11.305 11.305 0 0 1-3.402 4.443Zm3.817-5.581l-7.454-2.714a3.398 3.398 0 0 0 .035-.828l7.664-2.053a11.311 11.311 0 0 1-.245 5.595Zm-.067-6.764l-7.662 2.055a3.38 3.38 0 0 0-.442-.7l5.101-6.078a11.275 11.275 0 0 1 3.003 4.723ZM22.79 7.005l-5.097 6.075a3.354 3.354 0 0 0-1.057-.394V4.749a11.21 11.21 0 0 1 6.154 2.256Zm-7.365-2.26v7.93a3.358 3.358 0 0 0-.811.249l-4.552-6.501a11.203 11.203 0 0 1 5.363-1.677ZM9.07 7.116l4.547 6.497a3.39 3.39 0 0 0-.524.676l-7.456-2.714A11.307 11.307 0 0 1 9.07 7.116Zm-3.848 5.596l7.453 2.715a3.395 3.395 0 0 0-.037.86l-7.66 2.052a11.31 11.31 0 0 1-.244-2.34c0-1.143.17-2.247.488-3.287Zm.069 6.794l7.663-2.05c.124.26.281.502.465.72l-5.094 6.07a11.276 11.276 0 0 1-3.034-4.74Zm12.285-3.503a1.574 1.574 0 1 1-3.148 0a1.574 1.574 0 0 1 3.148 0Z"/></g></svg>Koła</h2>
+          <ul>
+            <li>Rozmiar kół: 700C</li>
+            <li>Opony: Schwalbe Lugano K-Guard, 700x25C</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h2><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 1 0-4 0m2 2v7m-2-9l-6.75-2M14 12l6.75-2"/></g></svg>Kierownica</h2>
+          <ul>
+            <li>Typ: Zintegrowana kierownica z mostkiem</li>
+            <li>Materiał: Aluminium</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h2><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M4 12V3H2v9a5 5 0 0 0 5 5h6v-2H7a3 3 0 0 1-3-3m18.83 5.24c-.38-.74-1.29-.97-2.03-.63l-1.09.5l-3.41-6.98A2.022 2.022 0 0 0 14.5 9H11V3H5v8a3 3 0 0 0 3 3h7l3.41 7l3.72-1.7c.77-.36 1.1-1.3.7-2.06Z"/></svg>Siodełko</h2>
+          <ul>
+            <li>Typ: sportowe</li>
+            <li>Materiał: syntetyczny</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h2><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><g transform="rotate(180 256 256) translate(0 512) scale(1 -1)"><path fill="currentColor" d="m510.28 445.86l-73.03-292.13c-3.8-15.19-16.44-25.72-30.87-25.72h-60.25c3.57-10.05 5.88-20.72 5.88-32c0-53.02-42.98-96-96-96s-96 42.98-96 96c0 11.28 2.3 21.95 5.88 32h-60.25c-14.43 0-27.08 10.54-30.87 25.72L1.72 445.86C-6.61 479.17 16.38 512 48.03 512h415.95c31.64 0 54.63-32.83 46.3-66.14zM256 128c-17.64 0-32-14.36-32-32s14.36-32 32-32s32 14.36 32 32s-14.36 32-32 32z"/></g></svg>Waga</h2>
+          <ul>
+            <li>Waga roweru: około 9,5 kg</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4">
+              <h3>O nas</h3>
+              <p>Jesteśmy sklepem internetowym zajmującym się sprzedażą rowerów oraz akcesoriów rowerowych. Nasza oferta obejmuje szeroki wybór modeli różnych marek w atrakcyjnych cenach.</p>
+            </div>
+            <div class="col-lg-4">
+              <h3>Kontakt</h3>
+              <p><i class="fas fa-envelope"></i> <a href="mailto:maciej.szruba@zstmikolow.pl">maciej.szruba@zstmikolow.pl</a></p>
+              <p><i class="fas fa-phone"></i> <a href="tel:+48123456789">+48 123 456 789</a></p>
+              <p><i class="fas fa-map-marker-alt"></i> ul. Rybnicka 44, 43-190 Mikołów</p>
+            </div>
+            <div class="col-lg-4">
+              <h3>Newsletter</h3>
+              <p>Zapisz się do newslettera i otrzymuj informacje o nowościach i promocjach.</p>
+              <form>
+                <input type="email" placeholder="Twój adres e-mail">
+                <button type="submit">Zapisz się</button>
+              </form>
+            </div>
+          </div>
+          <hr class="hr1">
+          <div class="row">
+            <div class="col-lg-6">
+              <p>&copy; 2023 Rowerex. Wszelkie prawa zastrzeżone.</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    <script>
+        const headerEl = document.querySelector('.header');
+
+        window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            headerEl.classList.add('header-scrolled');
+        } else if (window.scrollY <= 50) {
+            headerEl.classList.remove('header-scrolled');
+        }
+    });
+    </script>
+    
+    <script>
+
+      var inputs = document.querySelectorAll(".custom-input-number input");
+      
+      inputs.forEach(function(input) {
+        var btnUp = input.parentElement.querySelector(".btn-up");
+        var btnDown = input.parentElement.querySelector(".btn-down");
+      
+        btnUp.addEventListener("click", function(e) {
+          e.preventDefault();
+          var value = parseInt(input.value);
+          if (value < parseInt(input.max)) {
+            input.value = ++value;
+          }
+        });
+      
+        btnDown.addEventListener("click", function(e) {
+          e.preventDefault();
+          var value = parseInt(input.value);
+          if (value > parseInt(input.min)) {
+            input.value = --value;
+          }
+        });
+      
+        input.addEventListener("mousewheel", function(e) {
+          e.preventDefault();
+          if (e.deltaY > 0) {
+            input.stepDown();
+          } else {
+            input.stepUp();
+          }
+        });
+      
+        input.addEventListener("DOMMouseScroll", function(e) {
+          e.preventDefault();
+          if (e.detail > 0) {
+            input.stepDown();
+          } else {
+            input.stepUp();
+          }
+        });
+      });
+      
+      
+          </script>
+
+<script>
+  // Pobieramy wszystkie pola wejściowe typu "number" o klasie "custom-number-input"
+const customNumberInputs = document.querySelectorAll(".custom-number-input");
+
+// Dodajemy nasłuchiwanie zdarzenia "blur" na każde pole wejściowe
+customNumberInputs.forEach((input) => {
+input.addEventListener("blur", () => {
+// Sprawdzamy, czy wartość pola jest pusta
+if (input.value === "") {
+  // Jeśli tak, ustawiamy wartość na "1"
+  input.value = "1";
+}
+});
+});
+
+</script>
+
+<script>
+  // znajdź element z liczbą produktów
+const liczbaProduktowElement = document.querySelector('#liczba-produktow');
+
+// odczytaj wartość licznika z localStorage
+let liczbaProduktow = parseInt(localStorage.getItem('liczbaProduktow')) || 0;
+
+// ustaw wartość tekstową dla elementu z liczbą produktów
+liczbaProduktowElement.innerText = liczbaProduktow;
+
+</script>
+
+</body>
+</html>
